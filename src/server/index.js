@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
 const path = require('path')
+const chalk = require('chalk')
 app.use(express.static(path.join(__dirname, '../..', 'public' )))
 
 // logging middleware 
@@ -29,5 +30,5 @@ app.use((err, req, res, next) => {
 
 // starting the server
 app.listen(port, () => {
-  console.log(`Listening on port ${port}`)
+  console.log(chalk.cyan.bold(`Listening on port ${port}`))
 })
