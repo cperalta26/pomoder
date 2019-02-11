@@ -3,6 +3,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 const path = require('path');
 const chalk = require('chalk');
+
+// static middleware - sending html
 app.use(express.static(path.join(__dirname, '../..', 'public' )));
 
 // logging middleware 
