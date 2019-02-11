@@ -13,6 +13,13 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+// internal error handling 
+app.use((err, req, res, next) => {
+  console.error(err);
+  console.error(err.stack);
+  res.status(err.status || 500).send(err.message || 'Internal server error.')
+})
+
 // starting the server
 app.listen(port, () => {
   console.log(`Listening on port ${port}`)
