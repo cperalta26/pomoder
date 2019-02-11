@@ -13,6 +13,13 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+// 404 error handling
+app.get('*', (req, res, next) => {
+  const err = new Error('Page Not Found')
+  err.statusCode = 404
+  next(err)
+})
+
 // internal error handling 
 app.use((err, req, res, next) => {
   console.error(err);
