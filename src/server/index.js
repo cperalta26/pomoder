@@ -23,12 +23,15 @@ app.get('*', (req, res, next) => {
 
 // internal error handling 
 app.use((err, req, res, next) => {
+  // eslint-disable-next-line no-console
   console.error(err);
+  // eslint-disable-next-line no-console
   console.error(err.stack);
   res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
 // starting the server
 app.listen(port, () => {
+  // eslint-disable-next-line no-console
   console.log(chalk.cyan.bold(`Listening on port ${port}`));
 });
