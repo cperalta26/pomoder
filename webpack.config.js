@@ -2,12 +2,14 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map',
   entry: './src/client/index.js',
   output: {
+    devtoolLineToLine: true,
+    sourceMapFilename: "./bundle.js.map",
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.jsx', '.js', '.json', '*']
   }, 
