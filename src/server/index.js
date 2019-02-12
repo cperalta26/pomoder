@@ -6,6 +6,7 @@ const chalk = require('chalk');
 
 // static middleware - sending html
 app.use(express.static(path.join(__dirname, '../..', 'public' )));
+app.use(express.static(path.join(__dirname, '../..', 'dist' )));
 
 // logging middleware 
 const morgan = require('morgan');
