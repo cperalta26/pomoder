@@ -5,11 +5,11 @@ const chalk = require('chalk');
 const {join} = require('path');
 
 // static middleware - sending html
-const indexHtml = join(__dirname, '../..', 'dist' )
+const indexHtml = join(__dirname, '../..', 'dist' );
 app.use(express.static(indexHtml));
 
 // static middleware - sending public files(favicon, css)
-const publicFiles = join(__dirname, '../..', 'public' )
+const publicFiles = join(__dirname, '../..', 'public' );
 app.use(express.static(publicFiles));
 
 // logging middleware 
