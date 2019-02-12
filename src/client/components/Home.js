@@ -1,7 +1,7 @@
 import React from "react";
 
-const main = () => (
+const home = () => (
   <h1>This is a react component!!!!</h1>
 );
 
-export default main;
+export default home;
