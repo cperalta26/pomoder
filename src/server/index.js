@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
-const path = require('path');
 const chalk = require('chalk');
+const {join} = require('path');
 
 // static middleware - sending html
-app.use(express.static(path.join(__dirname, '../..', 'public' )));
-app.use(express.static(path.join(__dirname, '../..', 'dist' )));
+const indexHtml = join(__dirname, '../..', 'dist' )
+app.use(express.static(indexHtml));
+
+// static middleware - sending public files(favicon, css)
+const publicFiles = join(__dirname, '../..', 'public' )
+app.use(express.static(publicFiles));
 
 // logging middleware 
 const morgan = require('morgan');
