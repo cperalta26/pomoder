@@ -4,9 +4,9 @@ const port = process.env.PORT || 3000;
 const chalk = require('chalk');
 const {join} = require('path');
 
-// static middleware - sending html
-const indexHtml = join(__dirname, '../..', 'dist' );
-app.use(express.static(indexHtml));
+// static middleware - sending distribution files(bundle, html)
+const distFiles = join(__dirname, '../..', 'dist' );
+app.use(express.static(distFiles));
 
 // static middleware - sending public files(favicon, css)
 const publicFiles = join(__dirname, '../..', 'public' );
