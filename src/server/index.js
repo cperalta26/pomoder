@@ -21,11 +21,12 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// 404 error handling
-app.get('*', (req, res, next) => {
-  const err = new Error('Page Not Found');
-  err.statusCode = 404;
-  next(err);
+/* handling 404 on the client side - will render the NotFound Component
+when a route is not found. By catching all requests and sending each the 
+index.html file react-router can implement routing */
+app.get('*', (_, res) => {
+  const HTML = join(__dirname, '../..', 'dist', 'index.html');
+  res.sendFile(HTML);
 });
 
 // internal error handling 
