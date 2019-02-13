@@ -40,5 +40,5 @@ app.use((err, req, res, next) => {
 // starting the server
 app.listen(port, () => {
   // eslint-disable-next-line no-console
-  console.log(chalk.cyan.bold(`Listening on port ${port}`));
+  console.log(chalk.magenta(`Listening on port ${port}`));
 });
