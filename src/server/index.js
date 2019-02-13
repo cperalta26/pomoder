@@ -25,8 +25,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 when a route is not found. By catching all requests and sending each the 
 index.html file react-router can implement routing */
 app.get('*', (_, res) => {
-  const HTML = join(__dirname, '../..', 'dist', 'index.html');
-  res.sendFile(HTML);
+  const html = join(__dirname, '../..', 'dist', 'index.html');
+  res.sendFile(html);
 });
 
 // internal error handling 
