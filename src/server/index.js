@@ -4,11 +4,11 @@ const port = process.env.PORT || 3000;
 const chalk = require('chalk');
 const {join} = require('path');
 
-// static middleware - sending distribution files(bundle, html)
+// static middleware - sending distribution files(bundle)
 const distFiles = join(__dirname, '../..', 'dist' );
 app.use(express.static(distFiles));
 
-// static middleware - sending public files(favicon, css)
+// static middleware - sending public files(html, favicon, css)
 const publicFiles = join(__dirname, '../..', 'public' );
 app.use(express.static(publicFiles));
 
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 when a route is not found. By catching all requests and sending each the 
 index.html file react-router can implement routing */
 app.get('*', (_, res) => {
-  const html = join(__dirname, '../..', 'dist', 'index.html');
+  const html = join(__dirname, '../..', 'public', 'index.html');
   res.sendFile(html);
 });
 
