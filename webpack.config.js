@@ -1,4 +1,5 @@
 const path = require('path');
+const LiveReloadPlugin = require('webpack-livereload-plugin');
 const modeOption = process.env.NODE_ENV;
 
 module.exports = {
@@ -50,5 +51,6 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: modeOption === 'development' ? [new LiveReloadPlugin({appendScriptTag: true})] : []
 };
