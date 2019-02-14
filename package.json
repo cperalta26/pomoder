@@ -5,8 +5,8 @@
   "main": "src/server/index.js",
   "scripts": {
     "build-client": "webpack -w",
-    "start-server" : "nodemon src/server/index.js",
-    "start-dev" : "NODE_ENV=development npm run build-client && start-server",
+    "start-server": "nodemon src/server/index.js",
+    "start-dev": "cross-env NODE_ENV=development npm run build-client && start-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +25,7 @@
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
+    "cross-env": "^5.2.0",
     "css-loader": "^2.1.0",
     "file-loader": "^3.0.1",
     "nodemon": "^1.18.10",
