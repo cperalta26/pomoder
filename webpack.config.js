@@ -1,7 +1,8 @@
 const path = require('path');
+const modeOption = process.env.NODE_ENV;
 
 module.exports = {
-  mode: 'development',
+  mode: modeOption || 'development',
   devtool: 'source-map',
   entry: './src/client/index.js',
   output: {
