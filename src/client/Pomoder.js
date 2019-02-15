@@ -5,10 +5,13 @@ import NotFound from './components/NotFound';
 
 // houses our routes and all of our components
 export default class Pomoder extends Component {
-  /* you don't need a constructor if not initializing state  or binding methods.
-  Read more about it here: https://reactjs.org/docs/react-component.html#constructor */
   constructor(props) {
     super(props);
+    this.state = {
+      pomodoroTimer: 25,
+      longBreak: 10,
+      shortBreak: 5
+    }
   }
 
   render() {
