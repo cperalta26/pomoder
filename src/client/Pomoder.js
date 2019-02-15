@@ -11,15 +11,15 @@ export default class Pomoder extends Component {
       pomodoroTimer: 25,
       longBreak: 10,
       shortBreak: 5
-    }
+    };
   }
 
   render() {
     return (
       <Switch>
-        <Route exact path ="/" component={Home} />
+        <Route exact path ="/" render={() => <Home {...this.state}/> } />
         <Route component={NotFound} />
       </Switch>
     );
   }
-}
+};
