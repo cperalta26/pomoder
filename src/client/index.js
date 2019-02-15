@@ -8,5 +8,5 @@ ReactDom.render(
   <Router>
     <Pomoder/>
   </Router>, 
-  document.getElementById('app')
+  document.getElementById('pomoder')
 );
