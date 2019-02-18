@@ -1,9 +1,16 @@
 import React from "react";
+import styled from "styled-components";
 
-const TimerContainer = (props) => {
-  return (
-    <h1>This is a pomodoro timersss</h1>
-  )
-};
+const Wrapper = styled.div`
+  color: #FFFFFF;
+  margin: 0 10%; 
+`;
+
+
+const TimerContainer = (props) =>  (
+  <Wrapper> 
+    <h1>Pomoder</h1>
+  </Wrapper>
+);
 
 export default TimerContainer;
