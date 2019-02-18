@@ -3,9 +3,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   color: #FFFFFF;
-  margin: 0 10%; 
+  margin: 0 10vw;
 `;
-
 
 const TimerContainer = (props) =>  (
   <Wrapper> 
