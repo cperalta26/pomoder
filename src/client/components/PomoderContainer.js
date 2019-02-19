@@ -9,10 +9,10 @@ const Wrapper = styled.div`
   grid-template-rows: 20% 80%;
 `;
 
-const TimerContainer = (props) =>  (
+const PomoderContainer = (props) =>  (
   <Wrapper> 
     <h1>Pomoder</h1>
   </Wrapper>
 );
 
-export default TimerContainer;
+export default PomoderContainer;
