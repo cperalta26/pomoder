@@ -5,9 +5,8 @@ const Wrapper = styled.div`
   color: #FFFFFF;
   margin: 0 5vw;
   height: 100vh;
-  border-style: solid;
-  border-color: yellow;
-  border-weight: 3px;
+  display: grid;
+  grid-template-rows: 20% 80%;
 `;
 
 const TimerContainer = (props) =>  (
