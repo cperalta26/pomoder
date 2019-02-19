@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Button from "./Button";
 
 const Container = styled.div`
   color: #FFFFFF;
@@ -12,6 +13,7 @@ const Container = styled.div`
 const PomoderContainer = (props) =>  (
   <Container> 
     <h1>Pomoder</h1>
+    <Button />
   </Container>
 );
 
