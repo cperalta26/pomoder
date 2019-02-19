@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const Container = styled.div`
   color: #FFFFFF;
   margin: 0 5vw;
   height: 100vh;
@@ -9,10 +9,10 @@ const Wrapper = styled.div`
   grid-template-rows: 20% 80%;
 `;
 
-const TimerContainer = (props) =>  (
-  <Wrapper> 
+const PomoderContainer = (props) =>  (
+  <Container> 
     <h1>Pomoder</h1>
-  </Wrapper>
+  </Container>
 );
 
-export default TimerContainer;
+export default PomoderContainer;
