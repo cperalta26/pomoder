@@ -6,12 +6,11 @@ const StyledButton = styled.button`
   font-family: 'Karla', sans-serif;
   font-weight: 700;
   font-align: center;
+  font-size: 13px;
 `;
 
 const Button = () => (
-  <StyledButton>
-    <h1>Pomoder</h1>
-  </StyledButton>
+  <StyledButton>Pomodoro</StyledButton>
 );
 
 export default Button;
