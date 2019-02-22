@@ -13,7 +13,7 @@ const Container = styled.div`
 const PomoderContainer = (props) =>  (
   <Container> 
     <h1>Pomoder</h1>
-    <Button />
+    <Button btnColor={'#645DE9'}/>
   </Container>
 );
 
