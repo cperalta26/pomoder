@@ -7,12 +7,17 @@ const Container = styled.div`
   margin: 0 5vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 10% repeat(1fr);
 `;
 
 const PomoderContainer = (props) =>  (
   <Container> 
     <h1>Pomoder</h1>
+    <Button btnColor={'#645DE9'}/>
+    <Button btnColor={'#645DE9'}/>
+    <Button btnColor={'#645DE9'}/>
+    <Button btnColor={'#645DE9'}/>
+    <Button btnColor={'#645DE9'}/>
     <Button btnColor={'#645DE9'}/>
   </Container>
 );
