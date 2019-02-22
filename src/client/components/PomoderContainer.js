@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
+import Timer from "./Timer";
 
 const Container = styled.div`
   color: #FFFFFF;
@@ -14,6 +15,7 @@ const PomoderContainer = (props) =>  (
   <Container> 
     <h1>Pomoder</h1>
     <Button btnColor='#645DE9' name='Pomodoro'/>
+    <Timer />
     <Button btnColor='#B73FF3' name='Long Break'/>
     <Button btnColor='#F75789' name='Short Break'/>
     <Button btnColor='#2BBABD' name='Start'/>
