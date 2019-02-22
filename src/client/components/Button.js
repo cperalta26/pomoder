@@ -16,8 +16,8 @@ const StyledButton = styled.button`
   color: #fff;
 `;
 
-const Button = ({btnColor}) => (
-  <StyledButton color={btnColor}>Pomodoro</StyledButton>
+const Button = ({btnColor, name}) => (
+  <StyledButton color={btnColor}>{name}</StyledButton>
 );
 
 export default Button;
