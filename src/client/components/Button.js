@@ -10,14 +10,14 @@ const StyledButton = styled.button`
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-color: #645DE9;
-  border: 3px solid #645DE9;
+  background-color: ${props => props.color};
+  border: 3px solid ${props => props.color};
   padding: 3px 3px;
   color: #fff;
 `;
 
 const Button = () => (
-  <StyledButton>Pomodoro</StyledButton>
+  <StyledButton color="#645DE9">Pomodoro</StyledButton>
 );
 
 export default Button;
