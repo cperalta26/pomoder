@@ -28,10 +28,10 @@ const PomoderContainer = (props) =>  (
     <h1>Pomoder</h1>
     <TimerAndButtonsContainer>
       <Button btnColor='#645DE9' name='Pomodoro'/>
-      <Button btnColor='#B73FF3' name='Long Break'/>
-      <Button btnColor='#F75789' name='Short Break'/>
       <Button btnColor='#2BBABD' name='Start'/>
+      <Button btnColor='#B73FF3' name='Long Break'/>
       <Button btnColor='#F5243E' name='Stop'/>
+      <Button btnColor='#F75789' name='Short Break'/>
       <Button btnColor='#3AB9EC' name='Reset'/>
       <TimerGrid>
         <Timer/>
