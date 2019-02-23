@@ -7,12 +7,12 @@ const StyledButton = styled.button`
   font-align: center;
   font-size: 18px;
 
-  width: 115px;
-  height: 115px;
+  width: 95%;
+	height: 0%;
+	padding-bottom: 90%;
   border-radius: 50%;
   background-color: ${props => props.color};
   border: 3px solid ${props => props.color};
-  padding: 3px 3px;
   color: #fff;
 `;
 
