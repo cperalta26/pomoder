@@ -17,25 +17,38 @@ const TimerAndButtonsContainer = styled.div`
   grid-template-columns: 1fr 2fr 1fr;
 `;
 
-const TimerGrid = styled.div`
+const GridLocation = styled.div`
   display: grid;
-  grid-row: 1/-1;
-  grid-column: 2;
+  grid-row: ${props => props.gridRow ? props.gridRow : ''};
+  grid-column: ${props => props.gridCol ? props.gridCol : ''};
+  justify-items: ${props => props.location ? props.location : ''};
 `;
 
 const PomoderContainer = (props) =>  (
   <Container> 
     <h1>Pomoder</h1>
     <TimerAndButtonsContainer>
-      <Button btnColor='#645DE9' name='Pomodoro'/>
-      <Button btnColor='#2BBABD' name='Start'/>
-      <Button btnColor='#B73FF3' name='Long Break'/>
-      <Button btnColor='#F5243E' name='Stop'/>
-      <Button btnColor='#F75789' name='Short Break'/>
-      <Button btnColor='#3AB9EC' name='Reset'/>
-      <TimerGrid>
+      <GridLocation gridRow='1' gridCol='1'>
+        <Button btnColor='#645DE9' name='Pomodoro'/>
+      </GridLocation>
+      <GridLocation gridRow='2' gridCol='1'>
+        <Button btnColor='#B73FF3' name='Long Break'/>
+      </GridLocation>
+      <GridLocation gridRow='3' gridCol='1'>
+        <Button btnColor='#F75789' name='Short Break'/>
+      </GridLocation>
+      <GridLocation gridRow='1' gridCol='3' location='end'>
+        <Button btnColor='#2BBABD' name='Start'/>
+      </GridLocation>
+      <GridLocation gridRow='2' gridCol='3' location='end'>
+        <Button btnColor='#F5243E' name='Stop'/>
+      </GridLocation>
+      <GridLocation gridRow='3' gridCol='3' location='end'>
+        <Button btnColor='#3AB9EC' name='Reset'/>
+      </GridLocation>
+      <GridLocation gridRow='1/-1' gridCol='2' location='center'>
         <Timer/>
-      </TimerGrid>
+      </GridLocation>
     </TimerAndButtonsContainer>
   </Container>
 );
