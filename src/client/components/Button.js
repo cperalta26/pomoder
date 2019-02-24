@@ -1,0 +1,31 @@
+import React from "react";
+import styled from "styled-components";
+
+const StyledButton = styled.button`
+  width: 95%;
+	height: 0%;
+	padding-bottom: 90%;
+  border-radius: 50%;
+  background-color: ${props => props.color};
+  border: 3px solid ${props => props.color};
+  overflow: hidden;
+`;
+
+const StyledText = styled.div`
+  color: #fff;
+  line-height: 1em;
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 40% 0%; 
+`;
+
+const Button = ({btnColor, name}) => (
+  <StyledButton color={btnColor}>
+    <StyledText>
+      {name}
+    </StyledText>
+  </StyledButton>
+);
+
+export default Button;
