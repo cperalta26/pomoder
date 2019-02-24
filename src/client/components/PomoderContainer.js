@@ -13,8 +13,8 @@ const Container = styled.div`
 
 const TimerAndButtonsContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: repeat(3, 275px);
+  grid-template-columns: minmax(0, 175px) minmax(200px, auto) minmax(0, 175px);
 `;
 
 const GridLocation = styled.div`
@@ -22,6 +22,7 @@ const GridLocation = styled.div`
   grid-row: ${props => props.gridRow ? props.gridRow : ''};
   grid-column: ${props => props.gridCol ? props.gridCol : ''};
   justify-items: ${props => props.location ? props.location : ''};
+  align-items: center;
 `;
 
 const PomoderContainer = (props) =>  (
