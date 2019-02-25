@@ -11,6 +11,12 @@ const StyledTimer = styled.svg`
     stop-color: #1c1d3d;
     stop-opacity: 1;
   }
+  & .circle {
+    stroke: #645DE9;
+    fill: none;
+    stroke-width: 0.5;
+    stroke-linecap: round;
+  }
 `;
 
 const Timer = () => (
@@ -27,6 +33,11 @@ const Timer = () => (
       r="20"
       fill= "url(#fade)"
       strokeWidth="4"
+    />
+    <path className="circle"
+      d="M25 5
+         a 20 20 0 0 1 0 40
+         a 20 20 0 0 1 0 -40"
     />
   </StyledTimer>
 );
