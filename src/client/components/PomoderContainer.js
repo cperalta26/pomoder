@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Timer from "./Timer";
@@ -25,33 +25,41 @@ const GridLocation = styled.div`
   align-items: center;
 `;
 
-const PomoderContainer = (props) =>  (
-  <Container> 
-    <h1>Pomoder</h1>
-    <TimerAndButtonsContainer>
-      <GridLocation gridRow='1' gridCol='1'>
-        <Button btnColor='#645DE9' name='Pomodoro'/>
-      </GridLocation>
-      <GridLocation gridRow='2' gridCol='1'>
-        <Button btnColor='#B73FF3' name='Long Break'/>
-      </GridLocation>
-      <GridLocation gridRow='3' gridCol='1'>
-        <Button btnColor='#F75789' name='Short Break'/>
-      </GridLocation>
-      <GridLocation gridRow='1' gridCol='3' location='end'>
-        <Button btnColor='#2BBABD' name='Start'/>
-      </GridLocation>
-      <GridLocation gridRow='2' gridCol='3' location='end'>
-        <Button btnColor='#F5243E' name='Stop'/>
-      </GridLocation>
-      <GridLocation gridRow='3' gridCol='3' location='end'>
-        <Button btnColor='#3AB9EC' name='Reset'/>
-      </GridLocation>
-      <GridLocation gridRow='1/-1' gridCol='2' location='center'>
-        <Timer/>
-      </GridLocation>
-    </TimerAndButtonsContainer>
-  </Container>
-);
+export default class PomoderContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+  }
 
-export default PomoderContainer;
+  render() {
+    return(
+      <Container> 
+        <h1>Pomoder</h1>
+        <TimerAndButtonsContainer>
+          <GridLocation gridRow='1' gridCol='1'>
+            <Button btnColor='#645DE9' name='Pomodoro'/>
+          </GridLocation>
+          <GridLocation gridRow='2' gridCol='1'>
+            <Button btnColor='#B73FF3' name='Long Break'/>
+          </GridLocation>
+          <GridLocation gridRow='3' gridCol='1'>
+            <Button btnColor='#F75789' name='Short Break'/>
+          </GridLocation>
+          <GridLocation gridRow='1' gridCol='3' location='end'>
+            <Button btnColor='#2BBABD' name='Start'/>
+          </GridLocation>
+          <GridLocation gridRow='2' gridCol='3' location='end'>
+            <Button btnColor='#F5243E' name='Stop'/>
+          </GridLocation>
+          <GridLocation gridRow='3' gridCol='3' location='end'>
+            <Button btnColor='#3AB9EC' name='Reset'/>
+          </GridLocation>
+          <GridLocation gridRow='1/-1' gridCol='2' location='center'>
+            <Timer/>
+          </GridLocation>
+        </TimerAndButtonsContainer>
+      </Container>
+    );
+  }
+};
