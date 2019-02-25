@@ -11,11 +11,20 @@ const StyledTimer = styled.svg`
     stop-color: #1c1d3d;
     stop-opacity: 1;
   }
+  
   & .circle {
     stroke: #645DE9;
     fill: none;
     stroke-width: 0.5;
     stroke-linecap: round;
+  }
+
+  & .text {
+    stroke: #645DE9;
+    stroke-width: 0.32;
+    fill: #fff;
+    font-size: 10px;
+    font-family: Karla;
   }
 `;
 
@@ -39,6 +48,14 @@ const Timer = () => (
          a 20 20 0 0 1 0 40
          a 20 20 0 0 1 0 -40"
     />
+    <text className="text"
+      x="25"
+      y="25"
+      dy=".3em"
+      textAnchor="middle"
+    >
+    25:00
+    </text>
   </StyledTimer>
 );
 
