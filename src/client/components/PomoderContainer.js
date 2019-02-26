@@ -30,7 +30,7 @@ export default class PomoderContainer extends Component {
     super(props);
     this.state = {
       countdownTime: 25,
-      currentTimeColor: '#F5243E'
+      countdownTimeColor: '#F5243E'
     };
   }
 
