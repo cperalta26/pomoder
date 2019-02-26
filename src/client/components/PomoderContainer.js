@@ -29,6 +29,7 @@ export default class PomoderContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      countdownTime: 25
     };
   }
 
@@ -56,7 +57,7 @@ export default class PomoderContainer extends Component {
             <Button btnColor='#3AB9EC' name='Reset'/>
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
-            <Timer/>
+            <Timer countdownTime={this.state.countdownTime} />
           </GridLocation>
         </TimerAndButtonsContainer>
       </Container>

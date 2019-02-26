@@ -28,7 +28,7 @@ const StyledTimer = styled.svg`
   }
 `;
 
-const Timer = () => (
+const Timer = ({countdownTime}) => (
   <StyledTimer viewBox="0 0 50 50">
     <defs>
       <radialGradient id="fade" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
@@ -54,7 +54,7 @@ const Timer = () => (
       dy=".3em"
       textAnchor="middle"
     >
-    25:00
+      {`${countdownTime}:00`}
     </text>
   </StyledTimer>
 );
