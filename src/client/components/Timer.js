@@ -13,14 +13,14 @@ const StyledTimer = styled.svg`
   }
   
   & .circle {
-    stroke: #645DE9;
+    stroke: ${props => props.currentTimeColor};
     fill: none;
     stroke-width: 0.5;
     stroke-linecap: round;
   }
 
   & .text {
-    stroke: #645DE9;
+    stroke: ${props => props.currentTimeColor};
     stroke-width: 0.32;
     fill: #fff;
     font-size: 10px;
@@ -28,8 +28,8 @@ const StyledTimer = styled.svg`
   }
 `;
 
-const Timer = ({countdownTime}) => (
-  <StyledTimer viewBox="0 0 50 50">
+const Timer = ({countdownTime, currentTimeColor}) => (
+  <StyledTimer viewBox="0 0 50 50" currentTimeColor={currentTimeColor}>
     <defs>
       <radialGradient id="fade" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
         <stop offset="0%" className="fade-stop-1" />
@@ -40,7 +40,7 @@ const Timer = ({countdownTime}) => (
       cx="25"
       cy="25"
       r="20"
-      fill= "url(#fade)"
+      fill="url(#fade)"
       strokeWidth="4"
     />
     <path className="circle"
