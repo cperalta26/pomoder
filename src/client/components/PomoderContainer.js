@@ -29,19 +29,27 @@ export default class PomoderContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      countdownTime: 25,
+      countdownTime: {
+        minutes: 25,
+        seconds: '00'
+      },
       countdownTimeColor: '#645DE9'
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
   }
 
-  changeCountdownTime(newTime, color){
-    if (!(newTime === null)) {
+  changeCountdownTime({minutes, seconds}, color){
+    // console.log('changeCountdown called minutes ' + minutes + ' seconds ' + seconds )
+    if (!(minutes === null)) {
       this.setState({
-        countdownTime: newTime,
+        countdownTime: {
+          minutes,
+          seconds
+        },
         countdownTimeColor: color
       });
     }
+    //console.log('this is the state' + JSON.stringify(this.state))
   }
 
   render() {
@@ -53,7 +61,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#645DE9'
               name='Pomodoro'
-              newCountdownTime={25}
+              newCountdownTime={{minutes: 25, seconds: '00'}}
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
@@ -61,7 +69,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#B73FF3'
               name='Long Break'
-              newCountdownTime={10}
+              newCountdownTime={{minutes: 10, seconds: '00'}}
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
@@ -69,7 +77,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#F75789'
               name='Short Break'
-              newCountdownTime={5} 
+              newCountdownTime={{minutes: 5, seconds: '00'}} 
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
@@ -77,7 +85,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#2BBABD'
               name='Start'
-              newCountdownTime={null}
+              newCountdownTime={{minutes: null, seconds: null}}
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
@@ -85,7 +93,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#F5243E'
               name='Stop'
-              newCountdownTime={null}
+              newCountdownTime={{minutes: null, seconds: null}}
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
@@ -93,7 +101,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#3AB9EC' 
               name='Reset'
-              newCountdownTime={null}
+              newCountdownTime={{minutes: null, seconds: null}}
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>

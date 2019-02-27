@@ -28,35 +28,39 @@ const StyledTimer = styled.svg`
   }
 `;
 
-const Timer = ({countdownTime, countdownTimeColor}) => (
-  <StyledTimer viewBox="0 0 50 50" countdownTimeColor={countdownTimeColor}>
-    <defs>
-      <radialGradient id="fade" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
-        <stop offset="0%" className="fade-stop-1" />
-        <stop offset="100%" className="fade-stop-2"/>
-      </radialGradient>
-    </defs>
-    <circle
-      cx="25"
-      cy="25"
-      r="20"
-      fill="url(#fade)"
-      strokeWidth="4"
-    />
-    <path className="circle"
-      d="M25 5
-         a 20 20 0 0 1 0 40
-         a 20 20 0 0 1 0 -40"
-    />
-    <text className="text"
-      x="25"
-      y="25"
-      dy=".3em"
-      textAnchor="middle"
-    >
-      {`${countdownTime}:00`}
-    </text>
-  </StyledTimer>
-);
+const Timer = ({countdownTime, countdownTimeColor}) => { 
+  // console.log('countdownTimer is ' + JSON.stringify(countdownTime))
+   
+  return (
+    <StyledTimer viewBox="0 0 50 50" countdownTimeColor={countdownTimeColor}>
+      <defs>
+        <radialGradient id="fade" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="0%" className="fade-stop-1" />
+          <stop offset="100%" className="fade-stop-2"/>
+        </radialGradient>
+      </defs>
+      <circle
+        cx="25"
+        cy="25"
+        r="20"
+        fill="url(#fade)"
+        strokeWidth="4"
+      />
+      <path className="circle"
+        d="M25 5
+            a 20 20 0 0 1 0 40
+            a 20 20 0 0 1 0 -40"
+      />
+      <text className="text"
+        x="25"
+        y="25"
+        dy=".3em"
+        textAnchor="middle"
+      >
+        {`${countdownTime.minutes}: ${countdownTime.seconds}`}
+      </text>
+    </StyledTimer>
+  )
+};
 
 export default Timer;
