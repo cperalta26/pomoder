@@ -30,8 +30,18 @@ export default class PomoderContainer extends Component {
     super(props);
     this.state = {
       countdownTime: 25,
-      countdownTimeColor: '#F5243E'
+      countdownTimeColor: '#645DE9'
     };
+    this.changeCountdownTime = this.changeCountdownTime.bind(this);
+  }
+
+  changeCountdownTime(newTime, color){
+    if (!(newTime === null)) {
+      this.setState({
+        countdownTime: newTime,
+        countdownTimeColor: color
+      });
+    }
   }
 
   render() {
@@ -40,22 +50,52 @@ export default class PomoderContainer extends Component {
         <h1>Pomoder</h1>
         <TimerAndButtonsContainer>
           <GridLocation gridRow='1' gridCol='1'>
-            <Button btnColor='#645DE9' name='Pomodoro'/>
+            <Button
+              btnColor='#645DE9'
+              name='Pomodoro'
+              newCountdownTime={25}
+              changeCountdownTime={this.changeCountdownTime}
+            />
           </GridLocation>
           <GridLocation gridRow='2' gridCol='1'>
-            <Button btnColor='#B73FF3' name='Long Break'/>
+            <Button
+              btnColor='#B73FF3'
+              name='Long Break'
+              newCountdownTime={10}
+              changeCountdownTime={this.changeCountdownTime}
+            />
           </GridLocation>
           <GridLocation gridRow='3' gridCol='1'>
-            <Button btnColor='#F75789' name='Short Break'/>
+            <Button
+              btnColor='#F75789'
+              name='Short Break'
+              newCountdownTime={5} 
+              changeCountdownTime={this.changeCountdownTime}
+            />
           </GridLocation>
           <GridLocation gridRow='1' gridCol='3' location='end'>
-            <Button btnColor='#2BBABD' name='Start'/>
+            <Button
+              btnColor='#2BBABD'
+              name='Start'
+              newCountdownTime={null}
+              changeCountdownTime={this.changeCountdownTime}
+            />
           </GridLocation>
           <GridLocation gridRow='2' gridCol='3' location='end'>
-            <Button btnColor='#F5243E' name='Stop'/>
+            <Button
+              btnColor='#F5243E'
+              name='Stop'
+              newCountdownTime={null}
+              changeCountdownTime={this.changeCountdownTime}
+            />
           </GridLocation>
           <GridLocation gridRow='3' gridCol='3' location='end'>
-            <Button btnColor='#3AB9EC' name='Reset'/>
+            <Button
+              btnColor='#3AB9EC' 
+              name='Reset'
+              newCountdownTime={null}
+              changeCountdownTime={this.changeCountdownTime}
+            />
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
             <Timer {...this.state} />
