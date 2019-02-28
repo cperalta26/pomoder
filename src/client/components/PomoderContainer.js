@@ -31,13 +31,13 @@ export default class PomoderContainer extends Component {
     this.state = {
       countdownTime: {
         minutes: 25,
-        seconds: '00'
+        seconds: 38
       },
       countdownTimeColor: '#645DE9'
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
   }
-
+  
   changeCountdownTime({minutes, seconds}, color){
     // console.log('changeCountdown called minutes ' + minutes + ' seconds ' + seconds )
     if (!(minutes === null)) {
@@ -48,8 +48,42 @@ export default class PomoderContainer extends Component {
         },
         countdownTimeColor: color
       });
+
+      this.decreaseTime(minutes, seconds)
     }
     //console.log('this is the state' + JSON.stringify(this.state))
+  }
+
+  decreaseTime(minutes, seconds){
+    let minutesLeft = minutes;
+    let secondsLeft = seconds;
+    
+    const timer = () => {
+      console.log('timer called')
+      console.log('this is the state' + JSON.stringify(this.state))
+     /*  minutesLeft = secondsLeft === '00' ? minutesLeft - 1 : minutesLeft;
+      secondsLeft = secondsLeft === '00' ? 59 : secondsLeft - 1; */
+      //console.log('time inside ', minutesLeft, secondsLeft)
+      if (secondsLeft === '00' || secondsLeft === 0) {
+        minutesLeft = minutesLeft - 1;
+        secondsLeft = 59;
+      } else {
+        secondsLeft = secondsLeft - 1;
+      }
+      this.setState((prevState, props) => {
+        return {
+          countdownTime: {
+            minutes: minutesLeft,
+            seconds: secondsLeft
+        }}
+      })
+      if (this.state.countdownTime.minutes === 0 && this.state.countdownTime.seconds === 0) {
+        clearInterval(timerId)
+      }
+    }
+    console.log('time outside ', minutesLeft, secondsLeft)
+    const timerId = setInterval( () => {timer()}, 1000)
+    
   }
 
   render() {
@@ -77,7 +111,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#F75789'
               name='Short Break'
-              newCountdownTime={{minutes: 5, seconds: '00'}} 
+              newCountdownTime={{minutes: 1, seconds: '00'}} 
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
