@@ -36,10 +36,13 @@ export default class PomoderContainer extends Component {
       countdownTimeColor: '#645DE9'
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
+    this.timer = this.timer.bind(this);
+    this.calculateDuration = this.calculateDuration.bind(this);
+    this.startTimer = this.startTimer.bind(this);
+    this.updateTime = this.updateTime.bind(this);
   }
   
   changeCountdownTime({minutes, seconds}, color){
-    // console.log('changeCountdown called minutes ' + minutes + ' seconds ' + seconds )
     if (!(minutes === null)) {
       this.setState({
         countdownTime: {
@@ -49,41 +52,37 @@ export default class PomoderContainer extends Component {
         countdownTimeColor: color
       });
 
-      this.decreaseTime(minutes, seconds)
+      this.startTimer()
     }
-    //console.log('this is the state' + JSON.stringify(this.state))
   }
 
-  decreaseTime(minutes, seconds){
-    let minutesLeft = minutes;
-    let secondsLeft = seconds;
+  timer() {
+    const duration = this.calculateDuration();
+    const minutesLeft = Math.floor(duration / 60);
+    const secondsLeft = duration % 60;
+    // console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
     
-    const timer = () => {
-      console.log('timer called')
-      console.log('this is the state' + JSON.stringify(this.state))
-     /*  minutesLeft = secondsLeft === '00' ? minutesLeft - 1 : minutesLeft;
-      secondsLeft = secondsLeft === '00' ? 59 : secondsLeft - 1; */
-      //console.log('time inside ', minutesLeft, secondsLeft)
-      if (secondsLeft === '00' || secondsLeft === 0) {
-        minutesLeft = minutesLeft - 1;
-        secondsLeft = 59;
-      } else {
-        secondsLeft = secondsLeft - 1;
-      }
-      this.setState((prevState, props) => {
-        return {
-          countdownTime: {
-            minutes: minutesLeft,
-            seconds: secondsLeft
-        }}
-      })
-      if (this.state.countdownTime.minutes === 0 && this.state.countdownTime.seconds === 0) {
-        clearInterval(timerId)
-      }
-    }
-    console.log('time outside ', minutesLeft, secondsLeft)
-    const timerId = setInterval( () => {timer()}, 1000)
+    if (minutesLeft < 0 && secondsLeft < 0) clearInterval(timerId)
     
+    this.updateTime(minutesLeft, secondsLeft);
+  }
+    
+  calculateDuration() {
+    const {minutes, seconds} = this.state.countdownTime;
+    return ((parseInt(minutes * 60, 10)) + parseInt(seconds, 10)) - 1;
+  }
+  
+  startTimer(){
+    const timerId = setInterval(this.timer, 1000);
+  }
+
+  updateTime(minutes, seconds) {
+    this.setState({
+      countdownTime: {
+        minutes,
+        seconds
+      }
+    });
   }
 
   render() {
