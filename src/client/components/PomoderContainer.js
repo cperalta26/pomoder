@@ -141,7 +141,14 @@ export default class PomoderContainer extends Component {
             />
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
-            {!this.state.timer ? <h1>Regular Time</h1> : <Timer {...this.state} />}
+            {
+              !this.state.timer ? <h1>Regular Time</h1>
+              :
+              <Timer
+                countdownTime={this.state.countdownTime}
+                countdownTimeColor={this.state.countdownTimeColor}
+              />
+            }
           </GridLocation>
         </TimerAndButtonsContainer>
       </Container>
