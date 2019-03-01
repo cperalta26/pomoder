@@ -54,7 +54,7 @@ export default class PomoderContainer extends Component {
         timer: !prevState.timer
       }));
 
-      this.startTimer()
+      this.startTimer();
     }
   }
 
@@ -62,9 +62,9 @@ export default class PomoderContainer extends Component {
     const duration = this.calculateDuration();
     const minutesLeft = Math.floor(duration / 60);
     const secondsLeft = duration % 60;
-     console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
+    // console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
     
-    if (minutesLeft < 0 && secondsLeft < 0) clearInterval(timerId)
+    if (minutesLeft < 0 && secondsLeft < 0) clearInterval(timerId);
     
     this.updateTime(minutesLeft, secondsLeft);
   }
