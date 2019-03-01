@@ -33,7 +33,8 @@ export default class PomoderContainer extends Component {
         minutes: 25,
         seconds: 38
       },
-      countdownTimeColor: '#645DE9'
+      countdownTimeColor: '#645DE9',
+      timer: false
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
     this.timer = this.timer.bind(this);
@@ -44,13 +45,14 @@ export default class PomoderContainer extends Component {
   
   changeCountdownTime({minutes, seconds}, color){
     if (!(minutes === null)) {
-      this.setState({
+      this.setState(prevState => ({
         countdownTime: {
           minutes,
           seconds
         },
-        countdownTimeColor: color
-      });
+        countdownTimeColor: color,
+        timer: !prevState.timer
+      }));
 
       this.startTimer()
     }
@@ -60,7 +62,7 @@ export default class PomoderContainer extends Component {
     const duration = this.calculateDuration();
     const minutesLeft = Math.floor(duration / 60);
     const secondsLeft = duration % 60;
-    // console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
+     console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
     
     if (minutesLeft < 0 && secondsLeft < 0) clearInterval(timerId)
     
@@ -139,7 +141,7 @@ export default class PomoderContainer extends Component {
             />
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
-            <Timer {...this.state} />
+            {!this.state.timer ? <h1>Regular Time</h1> : <Timer {...this.state} />}
           </GridLocation>
         </TimerAndButtonsContainer>
       </Container>
