@@ -32,10 +32,34 @@ export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.timer = this.timer.bind(this);
+    this.calculateDuration = this.calculateDuration.bind(this);
+  }
+
+  timer() {
+    const duration = this.calculateDuration();
+    const minutesLeft = Math.floor(duration / 60);
+    const secondsLeft = duration % 60;
+    console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
+
+    this.props.updateTimer(minutesLeft, secondsLeft);
+  }
+
+  calculateDuration() {
+    const {minutes, seconds} = this.props.countdownTime;
+    return ((parseInt(minutes * 60, 10)) + parseInt(seconds, 10)) - 1;
+  }
+
+  componentWillMount() {
+    this.startTimerId = setInterval(this.timer, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.startTimerId)
   }
 
   render() {  
-    console.log('now a stateful component')
+    console.log('our props ' + JSON.stringify(this.props))
     return (
       <StyledTimer viewBox="0 0 50 50" countdownTimeColor={this.props.countdownTimeColor}>
         <defs>

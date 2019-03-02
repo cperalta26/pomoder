@@ -37,9 +37,9 @@ export default class PomoderContainer extends Component {
       timer: false
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
-    this.timer = this.timer.bind(this);
-    this.calculateDuration = this.calculateDuration.bind(this);
-    this.startTimer = this.startTimer.bind(this);
+    //this.timer = this.timer.bind(this);
+    //this.calculateDuration = this.calculateDuration.bind(this);
+    //this.startTimer = this.startTimer.bind(this);
     this.updateTime = this.updateTime.bind(this);
   }
   
@@ -54,11 +54,11 @@ export default class PomoderContainer extends Component {
         timer: !prevState.timer
       }));
 
-      this.startTimer();
+      //this.startTimer();
     }
   }
 
-  timer() {
+  /* timer() {
     const duration = this.calculateDuration();
     const minutesLeft = Math.floor(duration / 60);
     const secondsLeft = duration % 60;
@@ -76,14 +76,17 @@ export default class PomoderContainer extends Component {
   
   startTimer(){
     const timerId = setInterval(this.timer, 1000);
-  }
+  } */
 
   updateTime(minutes, seconds) {
+    const showTimer = minutes > 0 || seconds > 0
+    console.log('showTimer ' + showTimer)
     this.setState({
       countdownTime: {
         minutes,
-        seconds
-      }
+        seconds,
+      },
+      timer: showTimer
     });
   }
 
@@ -112,7 +115,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#F75789'
               name='Short Break'
-              newCountdownTime={{minutes: 1, seconds: '00'}} 
+              newCountdownTime={{minutes: 0, seconds: 10}} 
               changeCountdownTime={this.changeCountdownTime}
             />
           </GridLocation>
@@ -147,6 +150,7 @@ export default class PomoderContainer extends Component {
               <Timer
                 countdownTime={this.state.countdownTime}
                 countdownTimeColor={this.state.countdownTimeColor}
+                updateTimer={this.updateTime}
               />
             }
           </GridLocation>
