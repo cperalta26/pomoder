@@ -34,10 +34,10 @@ export default class PomoderContainer extends Component {
         seconds: 38
       },
       countdownTimeColor: '#645DE9',
-      timer: false
+      showTimer: false
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
-    this.updateTime = this.updateTime.bind(this);
+    this.updateTimer = this.updateTimer.bind(this);
   }
   
   changeCountdownTime({minutes, seconds}, color){
@@ -48,20 +48,20 @@ export default class PomoderContainer extends Component {
           seconds
         },
         countdownTimeColor: color,
-        timer: !prevState.timer
+        showTimer: !prevState.showTimer
       }));
     }
   }
 
-  updateTime(minutes, seconds) {
-    const showTimer = minutes > 0 || seconds > 0
-    console.log('showTimer ' + showTimer)
+  updateTimer(minutes, seconds) {
+    const showTimer = minutes > 0 || seconds > 0;
+    // console.log('showTimer ' + showTimer)
     this.setState({
       countdownTime: {
         minutes,
         seconds,
       },
-      timer: showTimer
+      showTimer
     });
   }
 
@@ -120,13 +120,13 @@ export default class PomoderContainer extends Component {
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
             {
-              !this.state.timer ? <h1>Regular Time</h1>
-              :
-              <Timer
-                countdownTime={this.state.countdownTime}
-                countdownTimeColor={this.state.countdownTimeColor}
-                updateTimer={this.updateTime}
-              />
+              !this.state.showTimer ? 
+                <h1>Regular Time</h1> :
+                <Timer
+                  countdownTime={this.state.countdownTime}
+                  countdownTimeColor={this.state.countdownTimeColor}
+                  updateTimer={this.updateTimer}
+                />
             }
           </GridLocation>
         </TimerAndButtonsContainer>
