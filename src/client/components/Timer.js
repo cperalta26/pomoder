@@ -36,11 +36,19 @@ export default class Timer extends Component {
     this.calculateDuration = this.calculateDuration.bind(this);
   }
 
+  componentWillMount() {
+    this.startTimerId = setInterval(this.timer, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.startTimerId);
+  }
+
   timer() {
     const duration = this.calculateDuration();
     const minutesLeft = Math.floor(duration / 60);
     const secondsLeft = duration % 60;
-    console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
+    // console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
 
     this.props.updateTimer(minutesLeft, secondsLeft);
   }
@@ -50,16 +58,8 @@ export default class Timer extends Component {
     return ((parseInt(minutes * 60, 10)) + parseInt(seconds, 10)) - 1;
   }
 
-  componentWillMount() {
-    this.startTimerId = setInterval(this.timer, 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.startTimerId)
-  }
-
   render() {  
-    console.log('our props ' + JSON.stringify(this.props))
+    // console.log('our props ' + JSON.stringify(this.props))
     return (
       <StyledTimer viewBox="0 0 50 50" countdownTimeColor={this.props.countdownTimeColor}>
         <defs>
@@ -89,6 +89,6 @@ export default class Timer extends Component {
           {`${this.props.countdownTime.minutes}: ${this.props.countdownTime.seconds}`}
         </text>
       </StyledTimer>
-    )
+    );
   }
 };
