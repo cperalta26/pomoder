@@ -37,9 +37,6 @@ export default class PomoderContainer extends Component {
       timer: false
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
-    //this.timer = this.timer.bind(this);
-    //this.calculateDuration = this.calculateDuration.bind(this);
-    //this.startTimer = this.startTimer.bind(this);
     this.updateTime = this.updateTime.bind(this);
   }
   
@@ -53,30 +50,8 @@ export default class PomoderContainer extends Component {
         countdownTimeColor: color,
         timer: !prevState.timer
       }));
-
-      //this.startTimer();
     }
   }
-
-  /* timer() {
-    const duration = this.calculateDuration();
-    const minutesLeft = Math.floor(duration / 60);
-    const secondsLeft = duration % 60;
-    // console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
-    
-    if (minutesLeft < 0 && secondsLeft < 0) clearInterval(timerId);
-    
-    this.updateTime(minutesLeft, secondsLeft);
-  }
-    
-  calculateDuration() {
-    const {minutes, seconds} = this.state.countdownTime;
-    return ((parseInt(minutes * 60, 10)) + parseInt(seconds, 10)) - 1;
-  }
-  
-  startTimer(){
-    const timerId = setInterval(this.timer, 1000);
-  } */
 
   updateTime(minutes, seconds) {
     const showTimer = minutes > 0 || seconds > 0
