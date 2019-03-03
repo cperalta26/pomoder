@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Timer from "./Timer";
+import ShowTime from "./ShowTime";
 
 const Container = styled.div`
   color: #FFFFFF;
@@ -121,7 +122,10 @@ export default class PomoderContainer extends Component {
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
             {
               !this.state.showTimer ? 
-                <h1>Regular Time</h1> :
+                <ShowTime 
+                  countdownTime={this.state.countdownTime}
+                  countdownTimeColor={this.state.countdownTimeColor}
+                /> :
                 <Timer
                   countdownTime={this.state.countdownTime}
                   countdownTimeColor={this.state.countdownTimeColor}
