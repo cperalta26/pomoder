@@ -82,7 +82,7 @@ export default class PomoderContainer extends Component {
         showTimer: false
       })
     } else {
-      if (!this.state.showTimer && (time.minutes > 0 && time.seconds > 0)){
+      if (!this.state.showTimer && (time.minutes > 0 || time.seconds > 0)){
         this.setState({
           showTimer: true
         })
