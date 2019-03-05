@@ -86,7 +86,11 @@ export default class Timer extends Component {
           dy=".3em"
           textAnchor="middle"
         >
-          {`${minutes}: ${seconds}`}
+          {
+            `${minutes < 10 ? 0 : ''}${minutes}
+              :
+              ${minutes < 10 && seconds < 10 ? 0 : ''}${seconds}`
+          }
         </text>
       </StyledTimer>
     );
