@@ -43,6 +43,11 @@ export default class PomoderContainer extends Component {
   }
   
   changeCountdownTime({minutes, seconds}, color){
+    if (this.state.showTimer) {
+      this.setState({
+        showTimer: false
+      })
+    }
     this.setState(prevState => ({
       countdownTime: {
         minutes,
