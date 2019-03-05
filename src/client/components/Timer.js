@@ -48,20 +48,20 @@ export default class Timer extends Component {
     const duration = this.calculateDuration();
     const minutesLeft = Math.floor(duration / 60);
     const secondsLeft = duration % 60;
-    // console.log(`duration: ${duration}, minutesLeft: ${minutesLeft}, secs: ${secondsLeft}`);
-
-    this.props.updateTimer(minutesLeft, secondsLeft);
+    const {updateTimer} = this.props;
+    updateTimer(minutesLeft, secondsLeft);
   }
 
   calculateDuration() {
-    const {minutes, seconds} = this.props.countdownTime;
+    const {countdownTime: {minutes, seconds}} = this.props;
     return ((parseInt(minutes * 60, 10)) + parseInt(seconds, 10)) - 1;
   }
 
   render() {  
-    // console.log('our props ' + JSON.stringify(this.props))
+    const {countdownTimeColor} = this.props;
+    const {countdownTime: {minutes, seconds}} = this.props;
     return (
-      <StyledTimer viewBox="0 0 50 50" countdownTimeColor={this.props.countdownTimeColor}>
+      <StyledTimer viewBox="0 0 50 50" countdownTimeColor={countdownTimeColor}>
         <defs>
           <radialGradient id="fade" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
             <stop offset="0%" className="fade-stop-1" />
@@ -86,7 +86,7 @@ export default class Timer extends Component {
           dy=".3em"
           textAnchor="middle"
         >
-          {`${this.props.countdownTime.minutes}: ${this.props.countdownTime.seconds}`}
+          {`${minutes}: ${seconds}`}
         </text>
       </StyledTimer>
     );
