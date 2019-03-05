@@ -52,7 +52,11 @@ const ShowTime = ({countdownTime, countdownTimeColor}) => (
       dy=".3em"
       textAnchor="middle"
     >
-      {`${countdownTime.minutes}: ${countdownTime.seconds}`}
+      {
+        `${countdownTime.minutes < 10  ? 0 : ''}${countdownTime.minutes}
+          :
+          ${countdownTime.seconds < 10 ? 0: ''}${countdownTime.seconds}`
+      }
     </text>
   </StyledTimer>
 );
