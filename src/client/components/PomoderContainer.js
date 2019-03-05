@@ -34,6 +34,10 @@ export default class PomoderContainer extends Component {
         minutes: 25,
         seconds: 38
       },
+      currentTimer: {
+        minutes: 25,
+        seconds: 0
+      },
       countdownTimeColor: '#645DE9',
       showTimer: false
     };
@@ -50,6 +54,10 @@ export default class PomoderContainer extends Component {
     }
     this.setState(prevState => ({
       countdownTime: {
+        minutes,
+        seconds
+      },
+      currentTimer: {
         minutes,
         seconds
       },
@@ -72,14 +80,14 @@ export default class PomoderContainer extends Component {
 
   controlTimer(time, color, name) {
     if (name === 'Reset') {
-      this.setState({
+      this.setState(prevState => ({
         countdownTime: {
-          minutes: 25,
-          seconds: 0,
+          minutes: prevState.currentTimer.minutes,
+          seconds: prevState.currentTimer.seconds,
         },
-        countdownTimeColor: "#645DE9",
+        countdownTimeColor: prevState.countdownTimeColor,
         showTimer: false
-      })
+      }))
     } else if (name === 'Stop') {
       this.setState({
         showTimer: false
