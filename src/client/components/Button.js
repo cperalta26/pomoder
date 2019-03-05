@@ -20,8 +20,8 @@ const StyledText = styled.div`
   padding: 40% 0%; 
 `;
 
-const Button = ({btnColor, name, newCountdownTime, changeCountdownTime}) => (
-  <StyledButton color={btnColor} onClick={() => changeCountdownTime(newCountdownTime, btnColor)}>
+const Button = ({btnColor, name, newCountdownTime, handleClick}) => (
+  <StyledButton color={btnColor} onClick={() => handleClick(newCountdownTime, btnColor, name)}>
     <StyledText>
       {name}
     </StyledText>

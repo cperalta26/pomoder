@@ -39,6 +39,7 @@ export default class PomoderContainer extends Component {
     };
     this.changeCountdownTime = this.changeCountdownTime.bind(this);
     this.updateTimer = this.updateTimer.bind(this);
+    this.controlTimer = this.controlTimer.bind(this);
   }
   
   changeCountdownTime({minutes, seconds}, color){
@@ -66,6 +67,29 @@ export default class PomoderContainer extends Component {
     });
   }
 
+  controlTimer(time, color, name) {
+    if (name === 'Reset') {
+      this.setState({
+        countdownTime: {
+          minutes: 25,
+          seconds: 0,
+        },
+        countdownTimeColor: "#645DE9",
+        showTimer: false
+      })
+    } else if (name === 'Stop') {
+      this.setState({
+        showTimer: false
+      })
+    } else {
+      if (!this.state.showTimer && (time.minutes > 0 && time.seconds > 0)){
+        this.setState({
+          showTimer: true
+        })
+      }
+    }
+  }
+
   render() {
     return(
       <Container> 
@@ -76,7 +100,7 @@ export default class PomoderContainer extends Component {
               btnColor='#645DE9'
               name='Pomodoro'
               newCountdownTime={{minutes: 25, seconds: '00'}}
-              changeCountdownTime={this.changeCountdownTime}
+              handleClick={this.changeCountdownTime}
             />
           </GridLocation>
           <GridLocation gridRow='2' gridCol='1'>
@@ -84,7 +108,7 @@ export default class PomoderContainer extends Component {
               btnColor='#B73FF3'
               name='Long Break'
               newCountdownTime={{minutes: 10, seconds: '00'}}
-              changeCountdownTime={this.changeCountdownTime}
+              handleClick={this.changeCountdownTime}
             />
           </GridLocation>
           <GridLocation gridRow='3' gridCol='1'>
@@ -92,31 +116,31 @@ export default class PomoderContainer extends Component {
               btnColor='#F75789'
               name='Short Break'
               newCountdownTime={{minutes: 0, seconds: 10}} 
-              changeCountdownTime={this.changeCountdownTime}
+              handleClick={this.changeCountdownTime}
             />
           </GridLocation>
           <GridLocation gridRow='1' gridCol='3' location='end'>
             <Button
               btnColor='#2BBABD'
               name='Start'
-              newCountdownTime={{minutes: null, seconds: null}}
-              changeCountdownTime={this.changeCountdownTime}
+              newCountdownTime={{minutes: this.state.countdownTime.minutes, seconds: this.state.countdownTime.seconds}}
+              handleClick={this.controlTimer}
             />
           </GridLocation>
           <GridLocation gridRow='2' gridCol='3' location='end'>
             <Button
               btnColor='#F5243E'
               name='Stop'
-              newCountdownTime={{minutes: null, seconds: null}}
-              changeCountdownTime={this.changeCountdownTime}
+              newCountdownTime={{minutes: this.state.countdownTime.minutes, seconds: this.state.countdownTime.seconds}}
+              handleClick={this.controlTimer}
             />
           </GridLocation>
           <GridLocation gridRow='3' gridCol='3' location='end'>
             <Button
               btnColor='#3AB9EC' 
               name='Reset'
-              newCountdownTime={{minutes: null, seconds: null}}
-              changeCountdownTime={this.changeCountdownTime}
+              newCountdownTime={{minutes: this.state.countdownTime.minutes, seconds: this.state.countdownTime.seconds}}
+              handleClick={this.controlTimer}
             />
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
