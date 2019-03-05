@@ -26,8 +26,8 @@ const StyledTimer = styled.svg`
   }
 `;
 
-const ShowTime = (props) => (
-  <StyledTimer viewBox="0 0 50 50" countdownTimeColor={props.countdownTimeColor}>
+const ShowTime = ({countdownTime, countdownTimeColor}) => (
+  <StyledTimer viewBox="0 0 50 50" countdownTimeColor={countdownTimeColor}>
     <defs>
       <radialGradient id="fade" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
         <stop offset="0%" className="fade-stop-1" />
@@ -52,7 +52,7 @@ const ShowTime = (props) => (
       dy=".3em"
       textAnchor="middle"
     >
-      {`${props.countdownTime.minutes}: ${props.countdownTime.seconds}`}
+      {`${countdownTime.minutes}: ${countdownTime.seconds}`}
     </text>
   </StyledTimer>
 );
