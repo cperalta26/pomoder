@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  width: 95%;
+  width: 90%;
 	height: 0%;
-	padding-bottom: 90%;
+	padding-bottom: 85%;
   border-radius: 50%;
   background-color: ${props => props.color};
   border: 3px solid ${props => props.color};
@@ -17,7 +17,7 @@ const StyledText = styled.div`
   font-family: 'Karla', sans-serif;
   font-weight: 700;
   font-size: 18px;
-  padding: 40% 0%; 
+  padding: 40% 0%;
 `;
 
 const Button = ({btnColor, name, newCountdownTime, handleClick}) => (
