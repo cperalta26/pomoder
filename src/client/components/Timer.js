@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledTimer = styled.svg`
   & .fade-stop-1 {
-    stop-color: #44479b; 
+    stop-color: #44479b;
     stop-opacity: 100;
   }
 
@@ -11,7 +11,7 @@ const StyledTimer = styled.svg`
     stop-color: #1c1d3d;
     stop-opacity: 1;
   }
-  
+
   & .circle {
     stroke: ${props => props.countdownTimeColor};
     fill: none;
@@ -28,7 +28,7 @@ const StyledTimer = styled.svg`
   }
 `;
 
-export default class Timer extends Component { 
+export default class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -57,7 +57,7 @@ export default class Timer extends Component {
     return ((parseInt(minutes * 60, 10)) + parseInt(seconds, 10)) - 1;
   }
 
-  render() {  
+  render() {
     const {countdownTimeColor} = this.props;
     const {countdownTime: {minutes, seconds}} = this.props;
     return (
@@ -89,7 +89,7 @@ export default class Timer extends Component {
           {
             `${minutes < 10 ? 0 : ''}${minutes}
               :
-              ${minutes < 10 && seconds < 10 ? 0 : ''}${seconds}`
+              ${seconds < 10 ? 0 : ''}${seconds}`
           }
         </text>
       </StyledTimer>

@@ -45,7 +45,7 @@ export default class PomoderContainer extends Component {
     this.updateTimer = this.updateTimer.bind(this);
     this.controlTimer = this.controlTimer.bind(this);
   }
-  
+
   changeCountdownTime({minutes, seconds}, color){
     const {showTimer} = this.state;
     if (showTimer) {
@@ -105,14 +105,14 @@ export default class PomoderContainer extends Component {
   render() {
     const {countdownTime, countdownTimeColor, showTimer} = this.state;
     return(
-      <Container> 
+      <Container>
         <h1>Pomoder</h1>
         <TimerAndButtonsContainer>
           <GridLocation gridRow='1' gridCol='1'>
             <Button
               btnColor='#645DE9'
               name='Pomodoro'
-              newCountdownTime={{minutes: 25, seconds: '00'}}
+              newCountdownTime={{minutes: 25, seconds: 0}}
               handleClick={this.changeCountdownTime}
             />
           </GridLocation>
@@ -120,7 +120,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#B73FF3'
               name='Long Break'
-              newCountdownTime={{minutes: 10, seconds: '00'}}
+              newCountdownTime={{minutes: 10, seconds: 0}}
               handleClick={this.changeCountdownTime}
             />
           </GridLocation>
@@ -128,7 +128,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#F75789'
               name='Short Break'
-              newCountdownTime={{minutes: 0, seconds: 10}} 
+              newCountdownTime={{minutes: 0, seconds: 10}}
               handleClick={this.changeCountdownTime}
             />
           </GridLocation>
@@ -150,7 +150,7 @@ export default class PomoderContainer extends Component {
           </GridLocation>
           <GridLocation gridRow='3' gridCol='3' location='end'>
             <Button
-              btnColor='#3AB9EC' 
+              btnColor='#3AB9EC'
               name='Reset'
               newCountdownTime={{minutes: countdownTime.minutes, seconds: countdownTime.seconds}}
               handleClick={this.controlTimer}
@@ -158,8 +158,8 @@ export default class PomoderContainer extends Component {
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
             {
-              !showTimer ? 
-                <ShowTime 
+              !showTimer ?
+                <ShowTime
                   countdownTime={countdownTime}
                   countdownTimeColor={countdownTimeColor}
                 /> :
