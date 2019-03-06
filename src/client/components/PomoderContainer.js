@@ -9,12 +9,12 @@ const Container = styled.div`
   margin: 0 5vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 1fr 2fr;
 `;
 
 const TimerAndButtonsContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(3, 275px);
+  grid-template-rows: repeat(3, 225px);
   grid-template-columns: minmax(0, 175px) minmax(200px, auto) minmax(0, 175px);
 `;
 
