@@ -26,6 +26,11 @@ const GridLocation = styled.div`
   align-items: center;
 `;
 
+const TimerGrid = styled.div`
+  display: grid;
+  grid-template-columns: minmax(200px, 725px);
+`;
+
 export default class PomoderContainer extends Component {
   constructor(props) {
     super(props);
@@ -157,6 +162,7 @@ export default class PomoderContainer extends Component {
             />
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
+            <TimerGrid>
             {
               !showTimer ?
                 <ShowTime
@@ -169,6 +175,7 @@ export default class PomoderContainer extends Component {
                   updateTimer={this.updateTimer}
                 />
             }
+            </TimerGrid>
           </GridLocation>
         </TimerAndButtonsContainer>
       </Container>
