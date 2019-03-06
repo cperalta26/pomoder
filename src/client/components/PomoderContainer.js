@@ -28,7 +28,7 @@ const GridLocation = styled.div`
 
 const TimerGrid = styled.div`
   display: grid;
-  grid-template-columns: minmax(200px, 725px);
+  grid-template-columns: minmax(200px, 675px);
 `;
 
 export default class PomoderContainer extends Component {
