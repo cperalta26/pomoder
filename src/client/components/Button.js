@@ -9,6 +9,13 @@ const StyledButton = styled.button`
   background-color: ${props => props.color};
   border: 3px solid ${props => props.color};
   overflow: hidden;
+  transition: 1s background;
+
+  &:hover {
+    background: linear-gradient(45deg, ${props => props.color}, #d9daeb);
+    border: 3.5px solid ${props => props.color};
+    transform: scale(1.1);
+  }
 `;
 
 const StyledText = styled.div`
