@@ -163,18 +163,18 @@ export default class PomoderContainer extends Component {
           </GridLocation>
           <GridLocation gridRow='1/-1' gridCol='2' location='center'>
             <TimerGrid>
-            {
-              !showTimer ?
-                <ShowTime
-                  countdownTime={countdownTime}
-                  countdownTimeColor={countdownTimeColor}
-                /> :
-                <Timer
-                  countdownTime={countdownTime}
-                  countdownTimeColor={countdownTimeColor}
-                  updateTimer={this.updateTimer}
-                />
-            }
+              {
+                !showTimer ?
+                  <ShowTime
+                    countdownTime={countdownTime}
+                    countdownTimeColor={countdownTimeColor}
+                  /> :
+                  <Timer
+                    countdownTime={countdownTime}
+                    countdownTimeColor={countdownTimeColor}
+                    updateTimer={this.updateTimer}
+                  />
+              }
             </TimerGrid>
           </GridLocation>
         </TimerAndButtonsContainer>
