@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
-  width: 90%;
+  width: 85%;
 	height: 0%;
-	padding-bottom: 85%;
+	padding-bottom: 80%;
   border-radius: 50%;
   background-color: ${props => props.color};
   border: 3px solid ${props => props.color};
