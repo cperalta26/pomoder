@@ -1,5 +1,5 @@
 {
-  "name": "boilermaker",
+  "name": "pomoder",
   "version": "1.0.0",
   "description": "",
   "main": "src/server/index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cperalta26/boilermaker.git"
+    "url": "git+https://github.com/cperalta26/pomoder.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cperalta26/boilermaker/issues"
+    "url": "https://github.com/cperalta26/pomoder/issues"
   },
-  "homepage": "https://github.com/cperalta26/boilermaker#readme",
+  "homepage": "https://github.com/cperalta26/pomoder#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.3.1",
