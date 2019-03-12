@@ -15,7 +15,7 @@ const StyledText = styled.div`
   color: #fff;
   line-height: 1em;
   font-family: 'Karla', sans-serif;
-  font-weight: 700;
+  font-weight: 900;
   font-size: 18px;
   padding: 40% 0%;
 `;

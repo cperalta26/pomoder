@@ -12,6 +12,13 @@ const Container = styled.div`
   grid-template-rows: minmax(0, 75px) auto-fill;
 `;
 
+const StyledHeading = styled.div`
+  font-family: 'Raleway', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 20px auto;
+`;
+
 const TimerAndButtonsContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(3, 225px);
@@ -111,7 +118,9 @@ export default class PomoderContainer extends Component {
     const {countdownTime, countdownTimeColor, showTimer} = this.state;
     return(
       <Container>
-        <h1>Pomoder</h1>
+        <StyledHeading>
+          <h1>Pomoder</h1>
+        </StyledHeading>
         <TimerAndButtonsContainer>
           <GridLocation gridRow='1' gridCol='1'>
             <Button
