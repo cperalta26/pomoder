@@ -1,6 +1,7 @@
 const path = require('path');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const modeOption = process.env.NODE_ENV;
+const SRC = path.resolve(__dirname, 'src/sounds/');
 
 module.exports = {
   mode: modeOption || 'development',
@@ -40,7 +41,8 @@ module.exports = {
         ]
       }, 
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        test: /\.(png|svg|jpg|jpeg|gif|mp3)$/,
+        include: SRC,
         use: [
           {
             loader: 'file-loader',

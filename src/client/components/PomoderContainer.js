@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import styled from "styled-components";
+import {Howl} from 'howler';
+import sound from '../../sounds/alarm_classic.mp3';
 import Button from "./Button";
 import Timer from "./Timer";
 import ShowTime from "./ShowTime";
@@ -13,7 +15,7 @@ const Container = styled.div`
 `;
 
 const StyledHeading = styled.div`
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif; 
   font-size: 22px;
   font-weight: 700;
   margin: 20px auto;
@@ -88,6 +90,10 @@ export default class PomoderContainer extends Component {
       },
       showTimer
     });
+    if (minutes === 0 && seconds === 0) {
+      const alarm = new Howl({src: [sound]});
+      alarm.play();
+    }
   }
 
   controlTimer(time, color, name) {
