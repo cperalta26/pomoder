@@ -9,7 +9,7 @@ const Container = styled.div`
   margin: 0 5vw;
   height: 100vh;
   display: grid;
-  grid-template-rows: 1fr 2fr;
+  grid-template-rows: minmax(0, 75px) auto-fill;
 `;
 
 const TimerAndButtonsContainer = styled.div`
