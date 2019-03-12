@@ -37,7 +37,7 @@ export default class PomoderContainer extends Component {
     this.state = {
       countdownTime: {
         minutes: 25,
-        seconds: 38
+        seconds: 0
       },
       currentTimer: {
         minutes: 25,
@@ -133,7 +133,7 @@ export default class PomoderContainer extends Component {
             <Button
               btnColor='#F75789'
               name='Short Break'
-              newCountdownTime={{minutes: 0, seconds: 10}}
+              newCountdownTime={{minutes: 5, seconds: 0}}
               handleClick={this.changeCountdownTime}
             />
           </GridLocation>
