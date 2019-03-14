@@ -12,7 +12,7 @@ app.use(express.static(distFiles));
 const publicFiles = join(__dirname, '../..', 'public' );
 app.use(express.static(publicFiles));
 
-// logging middleware 
+// logging middleware
 const morgan = require('morgan');
 app.use(morgan('dev'));
 
@@ -21,15 +21,13 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-/* handling 404 on the client side - will render the NotFound Component
-when a route is not found. By catching all requests and sending each the 
-index.html file react-router can implement routing */
+/* handling 404 on the client side */
 app.get('*', (_, res) => {
   const html = join(__dirname, '../..', 'public', 'index.html');
   res.sendFile(html);
 });
 
-// internal error handling 
+// internal error handling
 app.use((err, req, res, next) => {
   // eslint-disable-next-line no-console
   console.error(err);
