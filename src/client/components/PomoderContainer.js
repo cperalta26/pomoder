@@ -15,16 +15,16 @@ const Container = styled.div`
 `;
 
 const StyledHeading = styled.div`
-  font-family: 'Raleway', sans-serif; 
+  font-family: 'Raleway', sans-serif;
   font-size: 22px;
   font-weight: 700;
-  margin: 20px auto;
+  margin: 10px auto;
 `;
 
 const TimerAndButtonsContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(3, 225px);
-  grid-template-columns: minmax(0, 175px) minmax(200px, auto) minmax(0, 175px);
+  grid-template-rows: repeat(3, 205px);
+  grid-template-columns: minmax(0, 170px) minmax(200px, auto) minmax(0, 170px);
 `;
 
 const GridLocation = styled.div`
@@ -37,7 +37,7 @@ const GridLocation = styled.div`
 
 const TimerGrid = styled.div`
   display: grid;
-  grid-template-columns: minmax(200px, 675px);
+  grid-template-columns: minmax(200px, 625px);
 `;
 
 export default class PomoderContainer extends Component {
