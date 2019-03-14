@@ -25,6 +25,14 @@ const StyledText = styled.div`
   font-weight: 900;
   font-size: 18px;
   padding: 40% 0%;
+
+  @media (max-width: 630px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 530px) {
+    font-size: 10px;
+  }
 `;
 
 const Button = ({btnColor, name, newCountdownTime, handleClick}) => (
