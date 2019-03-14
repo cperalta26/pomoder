@@ -1,3 +1,3 @@
 # Pomoder
 
-<img src="https://giphy.com/gifs/1qdhq5cLbb9ixUikvJ" width="728">
+<img src="https://media.giphy.com/media/1qdhq5cLbb9ixUikvJ/giphy.gif" width="700" >
