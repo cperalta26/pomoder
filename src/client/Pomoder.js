@@ -1,25 +1,14 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import PomoderContainer from './components/PomoderContainer';
 import NotFound from './components/NotFound';
 
 // houses our routes and all of our components
-export default class Pomoder extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pomodoroTimer: 25,
-      longBreak: 10,
-      shortBreak: 5
-    };
-  }
+const Pomoder = () => (
+  <Switch>
+    <Route exact path ="/" component={PomoderContainer} />
+    <Route component={NotFound} />
+  </Switch>
+);
 
-  render() {
-    return (
-      <Switch>
-        <Route exact path ="/" render={() => <PomoderContainer {...this.state}/> } />
-        <Route component={NotFound} />
-      </Switch>
-    );
-  }
-};
+export default Pomoder;
