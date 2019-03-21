@@ -29,9 +29,9 @@ const TimerAndButtonsContainer = styled.div`
 
 const GridLocation = styled.div`
   display: grid;
-  grid-row: ${props => props.gridRow ? props.gridRow : ''};
-  grid-column: ${props => props.gridCol ? props.gridCol : ''};
-  justify-items: ${props => props.location ? props.location : ''};
+  grid-row: ${props => props.gridRow};
+  grid-column: ${props => props.gridCol};
+  justify-items: ${props => props.location};
   align-items: center;
 `;
 
