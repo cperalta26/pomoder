@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import styled from "styled-components";
+import React, {Component} from 'react';
+import styled from 'styled-components';
 
 const StyledTimer = styled.svg`
   & .fade-stop-1 {

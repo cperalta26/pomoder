@@ -9,7 +9,7 @@ module.exports = {
   entry: './src/client/index.js',
   output: {
     devtoolLineToLine: true,
-    sourceMapFilename: "./bundle.js.map",
+    sourceMapFilename: './bundle.js.map',
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },

@@ -1,10 +1,10 @@
-import React, {Component} from "react";
-import styled from "styled-components";
+import React, {Component} from 'react';
+import styled from 'styled-components';
 import {Howl} from 'howler';
 import sound from '../../sounds/alarm_classic.mp3';
-import Button from "./Button";
-import Timer from "./Timer";
-import ShowTime from "./ShowTime";
+import Button from './Button';
+import Timer from './Timer';
+import ShowTime from './ShowTime';
 
 const Container = styled.div`
   color: #FFFFFF;
