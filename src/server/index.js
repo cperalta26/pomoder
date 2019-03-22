@@ -16,11 +16,6 @@ app.use(express.static(publicFiles));
 const morgan = require('morgan');
 app.use(morgan('dev'));
 
-// parsing middleware
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
-
 /* handling 404 on the client side */
 app.get('*', (_, res) => {
   const html = join(__dirname, '../..', 'public', 'index.html');
