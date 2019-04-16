@@ -1,4 +1,3 @@
-const {expect} = require('chai');
 const request = require('supertest');
 const server = require('./index');
 
@@ -10,7 +9,7 @@ describe('GET status', () => {
   });
 
   it('/* also responds with 200', () => {
-    request(server).get('/asdf', (_, res, body) => {
+    request(server).get('/asdf', (_, res) => {
       expect(res.statusCode).to.equal(200);
     });
   });
