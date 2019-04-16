@@ -6,7 +6,10 @@ const SRC = path.resolve(__dirname, 'src/sounds/');
 module.exports = {
   mode: modeOption || 'development',
   devtool: 'source-map',
-  entry: './src/client/index.js',
+  entry: [
+    '@babel/polyfill',
+    './src/client/index.js'
+  ],
   output: {
     devtoolLineToLine: true,
     sourceMapFilename: './bundle.js.map',

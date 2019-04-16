@@ -31,8 +31,12 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500).send(err.message || 'Internal server error.');
 });
 
-// starting the server
-app.listen(port, () => {
-  // eslint-disable-next-line no-console
-  console.log(chalk.magenta(`Listening on port ${port}`));
-});
+if (process.env.NODE_ENV !== 'test') {
+  // starting the server
+  app.listen(port, () => {
+    // eslint-disable-next-line no-console
+    console.log(chalk.magenta(`Listening on port ${port}`));
+  });
+} 
+
+module.exports = app;
