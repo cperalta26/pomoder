@@ -7,6 +7,10 @@
     "build-client": "webpack -w",
     "start-server": "nodemon src/server/index.js",
     "start-dev": "cross-env NODE_ENV=development npm run build-client & npm run start-server",
+    "start": "node src/server/index.js",
+    "clean": "rimraf dist",
+    "deploy": "NODE_ENV=production npm run clean && webpack -p",
+    "heroku-postbuild": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
