@@ -7,7 +7,7 @@
     "build-client": "webpack -w",
     "start-server": "nodemon src/server/index.js",
     "start-dev": "cross-env NODE_ENV=development npm run build-client & npm run start-server",
-    "test": "cross-env NODE_ENV='test' mocha .src/client/**/*.spec.js --require @babel/polyfill --require @babel/register"
+    "test": "cross-env NODE_ENV='test' mocha ./src/client/**/*.spec.js --require @babel/polyfill --require @babel/register"
   },
   "repository": {
     "type": "git",
