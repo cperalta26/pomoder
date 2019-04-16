@@ -41,3 +41,5 @@ app.listen(port, () => {
   // eslint-disable-next-line no-console
   console.log(chalk.magenta(`Listening on port ${port}`));
 });
+
+module.exports = app;
